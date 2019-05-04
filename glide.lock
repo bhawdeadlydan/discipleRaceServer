@@ -1,10 +1,22 @@
-hash: 691218bf6cbbdab9f15fc4a01a16759c1e2790900560286d44b260e54733c2af
-updated: 2019-05-04T16:29:30.67939+05:30
+hash: 13fbfa1df13d2056c41135ab60c94fd5072f6fd2997a6f7e00bc41c728d9eb83
+updated: 2019-05-04T21:41:29.05809+05:30
 imports:
 - name: github.com/Clivern/Beaver
   version: 73b6364577fe3ded0b268cfc675e06df566c33c8
 - name: github.com/fsnotify/fsnotify
   version: ccc981bf80385c528a65fbfdd49bf2d8da22aa23
+- name: github.com/gin-contrib/sse
+  version: 5545eab6dad3bbbd6c5ae9186383c2a9d23c0dae
+- name: github.com/gin-gonic/gin
+  version: b869fe1415e4b9eb52f247441830d502aece2d4d
+  subpackages:
+  - binding
+  - json
+  - render
+- name: github.com/golang/protobuf
+  version: ddf22928ea3c56eb4292a0adbbf5001b1e8e7d0d
+  subpackages:
+  - proto
 - name: github.com/hashicorp/hcl
   version: 65a6292f0157eff210d03ed1bf6c59b190b8b906
   subpackages:
@@ -19,10 +31,18 @@ imports:
   - json/token
 - name: github.com/inconshreveable/mousetrap
   version: 76626ae9c91c4f2a10f34cad8ce83ea42c93bb75
+- name: github.com/json-iterator/go
+  version: 0ff49de124c6f76f8494e194af75bde0f1a49a29
 - name: github.com/magiconair/properties
   version: c2353362d570a7bfa228149c62842019201cfb71
+- name: github.com/mattn/go-isatty
+  version: c1975dc15c1d481e8da23f6ed313bb071136b98f
 - name: github.com/mitchellh/mapstructure
   version: 3536a929edddb9a5b34bd6861dc4a9647cb459fe
+- name: github.com/modern-go/concurrent
+  version: bacd9c7ef1dd9b15be4a9909b8ac7a4e313eec94
+- name: github.com/modern-go/reflect2
+  version: 94122c33edd36123c84d5368cfb2b69df93a0ec8
 - name: github.com/pelletier/go-toml
   version: 81a861c69d25a841d0c4394f0e6f84bc8c5afae0
 - name: github.com/spf13/afero
@@ -39,6 +59,10 @@ imports:
   version: 298182f68c66c05229eb03ac171abe6e309ee79a
 - name: github.com/spf13/viper
   version: 9e56dacc08fbbf8c9ee2dbc717553c758ce42bc9
+- name: github.com/ugorji/go
+  version: 3797a84a37c38f1fd76db9d861cee017ae3e1903
+  subpackages:
+  - codec
 - name: golang.org/x/sys
   version: fa43e7bc11baaae89f3f902b2b4d832b68234844
   subpackages:
@@ -48,6 +72,8 @@ imports:
   subpackages:
   - transform
   - unicode/norm
+- name: gopkg.in/go-playground/validator.v8
+  version: 5f1438d3fca68893a817e4a66806cea46a9e4ebf
 - name: gopkg.in/yaml.v2
   version: 5420a8b6744d3b0345ab293f6fcba19c978f1183
 testImports: []

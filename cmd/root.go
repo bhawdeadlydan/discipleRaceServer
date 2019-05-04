@@ -7,6 +7,8 @@ import (
 	"github.com/spf13/viper"
 	"github.com/discipleRaceServer/config"
 	"fmt"
+	"github.com/gin-gonic/gin"
+	"strconv"
 )
 
 var (
@@ -27,6 +29,14 @@ var RootCmd = &cobra.Command{
 
 		fmt.Println("Hello World!")
 		fmt.Println("Read the port", appConfig.GetAppPort())
+
+		r := gin.Default()
+		r.GET("/ping", func(c *gin.Context) {
+			c.JSON(200, gin.H{
+				"message": "pong",
+			})
+		})
+		r.Run(fmt.Sprintf(":%s", strconv.Itoa(appConfig.GetAppPort())))
 
 		return nil
 	},
