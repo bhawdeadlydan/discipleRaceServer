@@ -1,0 +1,4 @@
+package: github.com/discipleRaceServer
+import:
+- package: github.com/Clivern/Beaver
+  version: ~1.2.0

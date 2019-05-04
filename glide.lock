@@ -1,0 +1,6 @@
+hash: 7eae7229951c273d2564bc1c149e1e7b9a489a54cf03584ced76b521d396221d
+updated: 2019-05-04T16:06:16.905062+05:30
+imports:
+- name: github.com/Clivern/Beaver
+  version: 73b6364577fe3ded0b268cfc675e06df566c33c8
+testImports: []
