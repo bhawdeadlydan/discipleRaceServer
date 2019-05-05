@@ -1,8 +1,8 @@
-hash: 13fbfa1df13d2056c41135ab60c94fd5072f6fd2997a6f7e00bc41c728d9eb83
-updated: 2019-05-04T21:41:29.05809+05:30
+hash: c48b367d775afe4e4570dabb5c7bfe11d0505dd5b3a96d31e8b32feb68749d36
+updated: 2019-05-05T09:33:14.371146+05:30
 imports:
-- name: github.com/Clivern/Beaver
-  version: 73b6364577fe3ded0b268cfc675e06df566c33c8
+- name: github.com/dgrijalva/jwt-go
+  version: 06ea1031745cb8b3dab3f6a236daf2b0aa468b7e
 - name: github.com/fsnotify/fsnotify
   version: ccc981bf80385c528a65fbfdd49bf2d8da22aa23
 - name: github.com/gin-contrib/sse
@@ -17,6 +17,10 @@ imports:
   version: ddf22928ea3c56eb4292a0adbbf5001b1e8e7d0d
   subpackages:
   - proto
+- name: github.com/google/logger
+  version: 945e2bd9ed8f9313ef1d14b674500421a51e960b
+- name: github.com/gorilla/websocket
+  version: 66b9c49e59c6c48f0ffce28c2d8b8a5678502c6d
 - name: github.com/hashicorp/hcl
   version: 65a6292f0157eff210d03ed1bf6c59b190b8b906
   subpackages:
@@ -45,6 +49,8 @@ imports:
   version: 94122c33edd36123c84d5368cfb2b69df93a0ec8
 - name: github.com/pelletier/go-toml
   version: 81a861c69d25a841d0c4394f0e6f84bc8c5afae0
+- name: github.com/satori/go.uuid
+  version: f58768cc1a7a7e77a3bd49e98cdd21419399b6a3
 - name: github.com/spf13/afero
   version: d40851caa0d747393da1ffb28f7f9d8b4eeffebd
   subpackages:
@@ -59,14 +65,23 @@ imports:
   version: 298182f68c66c05229eb03ac171abe6e309ee79a
 - name: github.com/spf13/viper
   version: 9e56dacc08fbbf8c9ee2dbc717553c758ce42bc9
+- name: github.com/tomdionysus/binarytree
+  version: 85bbec8bd59d6ca661bb824c695cf6298ec83850
 - name: github.com/ugorji/go
   version: 3797a84a37c38f1fd76db9d861cee017ae3e1903
   subpackages:
   - codec
+- name: golang.org/x/net
+  version: 49bb7cea24b1df9410e1712aa6433dae904ff66a
+  subpackages:
+  - html/atom
 - name: golang.org/x/sys
   version: fa43e7bc11baaae89f3f902b2b4d832b68234844
   subpackages:
   - unix
+  - windows
+  - windows/registry
+  - windows/svc/eventlog
 - name: golang.org/x/text
   version: 4d1c5fb19474adfe9562c9847ba425e7da817e81
   subpackages:
@@ -76,4 +91,6 @@ imports:
   version: 5f1438d3fca68893a817e4a66806cea46a9e4ebf
 - name: gopkg.in/yaml.v2
   version: 5420a8b6744d3b0345ab293f6fcba19c978f1183
-testImports: []
+testImports:
+- name: github.com/nbio/st
+  version: e9e8d9816f3268def6dcbd2dea03301f40e9de94

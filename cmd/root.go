@@ -9,6 +9,10 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"strconv"
+	"github.com/discipleRaceServer/controller"
+	"net/http"
+	"github.com/discipleRaceServer/core"
+	"golang.org/x/tools/playground/socket"
 )
 
 var (
@@ -30,13 +34,60 @@ var RootCmd = &cobra.Command{
 		fmt.Println("Hello World!")
 		fmt.Println("Read the port", appConfig.GetAppPort())
 
+
+		gameHandler := core.NewGameHandler()
+		matchRouter := core.NewMatchRouting()
+
+		socket := controller.NewWebsocket(gameHandler, matchRouter.GetMatchRequestChannel())
+		socket.Init()
 		r := gin.Default()
 		r.GET("/ping", func(c *gin.Context) {
 			c.JSON(200, gin.H{
 				"message": "pong",
 			})
 		})
+
+		r.GET("/ws/:id/:token", func(c *gin.Context) {
+			socket.HandleConnections(
+				c.Writer,
+				c.Request,
+				c.Param("id"),
+				c.Param("token"),
+				c.Request.Header.Get("X-Correlation-ID"),
+			)
+		})
+
+		r.POST("/api/broadcast", func(c *gin.Context) {
+			rawBody, err := c.GetRawData()
+			if err != nil {
+				c.JSON(http.StatusBadRequest, gin.H{
+					"status": "error",
+					"error":  "Invalid request",
+				})
+				return
+			}
+			socket.BroadcastAction(c, rawBody)
+		})
+
+		r.POST("/api/publish", func(c *gin.Context) {
+			rawBody, err := c.GetRawData()
+			if err != nil {
+				c.JSON(http.StatusBadRequest, gin.H{
+					"status": "error",
+					"error":  "Invalid request",
+				})
+				return
+			}
+			socket.PublishAction(c, rawBody)
+		})
+
+
+
+		go socket.HandleMessages()
+
 		r.Run(fmt.Sprintf(":%s", strconv.Itoa(appConfig.GetAppPort())))
+
+
 
 		return nil
 	},
